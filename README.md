@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+###DESCRIPTION
+Our app aims to provide everyone out on road an alert about an incoming emergency vehicle.
+Our app also provides a way for citizens to report an accident site.
+It will also be useful for citizens as normal maps. 
