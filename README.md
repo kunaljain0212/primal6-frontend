@@ -33,9 +33,15 @@ The project aims to provide solution to the issue of traffic for emergency vehic
 #Contibution Guidelines
 
 git clone <LINK>
+  
 cd primal6-backend
+
 git checkout -b <username>/<issue_ID>
+  
 Make your changes
+
 git add .
+
 git commit -m"MESSAGE"
+
 git push origin <Branchname(username/issue_ID)></Branchname>
