@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-                                                                                       Primal6
+          Primal6
         </a>
       </header>
     </div>
