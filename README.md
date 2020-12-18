@@ -45,3 +45,8 @@ git add .
 git commit -m"MESSAGE"
 
 git push origin <Branchname(username/issue_ID)></Branchname>
+
+###DESCRIPTION
+Our app aims to provide everyone out on road an alert about an incoming emergency vehicle.
+Our app also provides a way for citizens to report an accident site.
+It will also be useful for citizens as normal maps. 
