@@ -1,3 +1,3 @@
 module.exports = {
-  MapApiKey: "AIzaSyBrCEDlRuDoXFXTdZ75Cm7B6yjgvwINC4I",
+  MapApiKey: "AIzaSyDzTMGTd-pTdPr5_Xo-xxpl-Jjd-CbpPtw",
 };
