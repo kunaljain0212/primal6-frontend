@@ -3,12 +3,16 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import RenderMap from './components/map';
+import LandingPage from './views/LandingPage/LandingPage';
 
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
+      <Route exact path="/">
+              <LandingPage />
+            </Route>
         <Route path="/map" component={RenderMap} />
         <div className="App">
           <header className="App-header">
