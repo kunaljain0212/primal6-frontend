@@ -1,15 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
 import RenderMap from './components/map';
-
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/map" component={RenderMap} />
+        <Route path="/navbar" component={Navbar} />
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />

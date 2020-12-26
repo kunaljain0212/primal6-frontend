@@ -1,0 +1,37 @@
+.container {
+  height: 100vh;
+  width: 25rem;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #303030;
+  height: 15vh;
+  border-bottom: 2px solid grey;
+}
+.headerContent {
+  width: 60%;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerSvg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.locations {
+  background-color: #303030;
+  height: 15vh;
+}
+.recent-locations {
+  height: 20vh;
+}
+.traffic {
+}
