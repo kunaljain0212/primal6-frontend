@@ -1,21 +1,42 @@
-.container {
+.containerIsOpen {
   height: 100vh;
   width: 25rem;
-  background: #000;
+  background: #fff;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  z-index: 100;
   color: #fff;
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  transition: all 0.3s;
+}
+.containerIsClosed {
+  height: 100vh;
+  width: 25rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 0;
+  color: #fff;
+  border-radius: 0px;
+  background: #ffffff;
+  transition: all 0.3s;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 .header {
   display: flex;
   flex-direction: row;
   background-color: #303030;
   height: 15vh;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid #808080;
 }
 .headerContent {
   width: 60%;
   font-size: 2em;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,14 +45,71 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 .locations {
   background-color: #303030;
   height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.start {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start > input {
+  text-decoration: none;
+  background-color: #303030;
+  border: none;
+  font-size: 15px;
+  border-bottom: 1px solid #808080;
+  color: #fff;
+  margin: 0px 20px;
+  text-align: center;
 }
 .recent-locations {
+  color: #000;
   height: 20vh;
+  padding: 20px;
+  border-bottom: 2px solid #808080;
+}
+.rl-sections {
+  display: flex;
+  align-items: center;
+  height: 33.3%;
+  font-size: 20px;
+  font-weight: 400;
+}
+.rl-sections > svg {
+  margin-left: 30px;
+  margin-right: 10px;
+}
+.rl-sections > span {
+  margin-left: 10px;
 }
 .traffic {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+.trafficHeader {
+  height: 30%;
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+ul li {
+  color: #00a8ff;
+  margin-top: 20px;
+}
+
+ul li span {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
 }
