@@ -3,11 +3,21 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import RenderMap from './components/map';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+
+
+
+const client = new ApolloClient({
+  // uri: GRAPHQL_ENDPOINT
+  uri: process.env.GRAPHQL_END_POINT,
+});
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
       <Switch>
         <Route path="/map" component={RenderMap} />
         <div className="App">
@@ -28,6 +38,8 @@ function App() {
         </div>
       </Switch>
     </BrowserRouter>
+    </ApolloProvider>
+    
   );
 }
 
