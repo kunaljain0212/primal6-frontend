@@ -10,7 +10,7 @@
   border-radius: 0px;
   background: #ffffff;
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 .containerIsClosed {
   height: 100vh;
@@ -19,12 +19,13 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: 0;
+  z-index: 100;
   color: #fff;
   border-radius: 0px;
   background: #ffffff;
-  transition: all 0.3s;
+  transition: all 0.5s;
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  transform: translateX(-25rem);
 }
 .header {
   display: flex;
