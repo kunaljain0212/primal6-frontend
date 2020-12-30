@@ -68,7 +68,7 @@ function Navbar({ isNav }) {
                 </g>
               </g>
             </svg>
-            <input type="text" placeholder="Enter start location" id="" />
+            <input type="text" placeholder="Enter start location" />
             <svg
               version="1.1"
               id="Capa_1"
@@ -162,7 +162,7 @@ function Navbar({ isNav }) {
                 fill="#808080"
               />
             </svg>
-            <span>loremp ipsum</span>
+            <span>recent location</span>
           </div>
           <div className="rl-sections">
             <svg
@@ -176,7 +176,7 @@ function Navbar({ isNav }) {
                 fill="#808080"
               />
             </svg>
-            <span>loremp ipsum</span>
+            <span>recent location</span>
           </div>
           <div className="rl-sections">
             <svg
@@ -190,7 +190,7 @@ function Navbar({ isNav }) {
                 fill="#808080"
               />
             </svg>
-            <span>loremp ipsum</span>
+            <span>recent location</span>
           </div>
         </div>
         <div className="traffic">

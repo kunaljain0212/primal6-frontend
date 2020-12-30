@@ -51,7 +51,7 @@ const RenderMap = () => {
               position: 'fixed',
               zIndex: '10',
               top: '10rem',
-              left: '28rem',
+              left: '18rem',
             }}
             onClick={toggleNav}
           >

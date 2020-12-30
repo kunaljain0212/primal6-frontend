@@ -7,7 +7,6 @@ import LandingPage from './views/LandingPage/LandingPage';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
-
 const client = new ApolloClient({
   // uri: GRAPHQL_ENDPOINT
   uri: process.env.GRAPHQL_END_POINT,
