@@ -105,20 +105,24 @@ const LandingPage = () => {
 
       <div className={styles.item4}>
         <div className={styles.box}>
-          <button
-            className={styles.button}
-            onClick={() => changeIsModalOpen('Sign Up')}
-          >
-            <span> Sign Up</span>
-          </button>
-          <button
-            className={styles.button}
-            onClick={() => changeIsModalOpen('Sign In')}
-          >
-            <span>Sign In </span>
-          </button>
+          <span className={styles.rounded}>
+            <button
+              className={styles.button}
+              onClick={() => changeIsModalOpen('Sign Up')}
+            >
+              <span> Sign Up</span>
+            </button>
+            <button
+              className={styles.button}
+              onClick={() => changeIsModalOpen('Sign In')}
+            >
+              <span>Sign In </span>
+            </button>
+          </span>
         </div>
       </div>
+
+      <div className={styles.verticalLine}></div>
 
       <div className={styles.item5}>
         <div className={styles.center2}>
@@ -136,6 +140,7 @@ const LandingPage = () => {
         <div className={styles.footer}>
           <div className={styles.topnav}>
             <a href="# Privacy Policy">Privacy Policy</a>
+            <span>|</span>
             <a href="# Terms & Conditions">Terms & Conditions</a>
           </div>
         </div>
