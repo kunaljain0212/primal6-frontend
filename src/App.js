@@ -6,6 +6,7 @@ import RenderMap from './components/map';
 import LandingPage from './views/LandingPage/LandingPage';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import Profile from './components/Profile/Profile';
 
 const client = new ApolloClient({
   // uri: GRAPHQL_ENDPOINT
@@ -22,7 +23,7 @@ function App() {
               <LandingPage />
             </Route>
             <Route path="/map" component={RenderMap} />
-
+            <Route path="/profile" component={Profile} />
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <p>
