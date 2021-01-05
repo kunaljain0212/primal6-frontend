@@ -1,3 +1,16 @@
+@media (max-width: 420px) {
+  .container {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0rem;
+  left: 0px;
+  z-index: 200;
+}
 .containerIsOpen {
   height: 100vh;
   width: 18rem;
@@ -5,7 +18,7 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: 100;
+  z-index: 150;
   color: #fff;
   border-radius: 0px;
   background: #ffffff;
@@ -34,6 +47,11 @@
   height: 15vh;
   border-bottom: 2px solid #808080;
 }
+.navclose {
+  margin-left: 0.1rem;
+  margin-top: -5rem;
+  z-index: 150;
+}
 .headerContent {
   width: 60%;
   font-size: 1.5em;
@@ -43,12 +61,14 @@
   margin-left: 2rem;
   align-items: center;
   text-align: left;
+  margin-top: 1rem;
 }
 .headerSvg {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin-top: 0.5rem;
 }
 .locations {
   background-color: #303030;
@@ -73,11 +93,11 @@
   margin: 0px 20px;
   text-align: center;
 }
-input::placeholder {
+/* input::placeholder {
   color: white;
   opacity: 0.8;
   font-size: 0.7rem;
-}
+} */
 .recent-locations {
   color: #000;
   height: 15vh;
