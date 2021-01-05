@@ -197,7 +197,7 @@ function Navbar({ isNav }) {
           <div className="trafficHeader">Traffic Updates</div>
           <div className="trafficDetail">
             <ul>
-              <li>
+              <li style={{ marginTop: '0rem' }}>
                 <span>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 </span>

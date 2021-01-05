@@ -110,7 +110,13 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   font-size: 1.3em;
-  font-weight: 600;
+  font-weight: 500;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -2rem;
 }
 ul li {
   color: #00a8ff;
@@ -119,7 +125,5 @@ ul li {
 
 ul li span {
   font-size: 1rem;
-  font-weight: 600;
   color: rgb(0, 0, 0);
-  margin-left: -2rem;
 }
