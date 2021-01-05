@@ -1,0 +1,151 @@
+.profileContainer {
+  position: fixed;
+  right: 0;
+  width: 18rem;
+  height: 100vh;
+  padding: 30px 50px;
+  box-shadow: -5px 10px 10px 5px #d9d9d9;
+}
+
+.profileHeading {
+  height: 20%;
+  display: flex;
+  border-bottom: 2px solid grey;
+}
+
+.profileHeadingData {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.spanName {
+  font-weight: bold;
+  margin: 10px 0px;
+  color: #00a8ff;
+}
+
+.spanEmail {
+  margin-bottom: 10px;
+}
+
+.profileImageContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.profileImage {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #00a8ff;
+}
+
+.profileMenu {
+  height: 30%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-bottom: 2px solid grey;
+}
+
+.profileMenuOptions {
+  display: flex;
+  align-items: center;
+}
+
+.profileMenuOptions:hover {
+  cursor: pointer;
+}
+
+.spanMenuOption {
+  margin-left: 20px;
+}
+
+.profileMenuOptionsActive {
+  display: flex;
+  align-items: center;
+  color: #00a8ff;
+}
+
+.profileMenuOptionsActive:hover {
+  cursor: pointer;
+}
+
+.spanMenuOptionActive {
+  margin-left: 20px;
+  border-bottom: 3px solid #00a8ff;
+}
+
+.svgMenuOptionActive {
+  fill: #00a8ff;
+}
+
+.driveEmergencyContainer {
+  height: 20%;
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+}
+
+.driveEmergency {
+  height: 30%;
+  width: 100%;
+  border-radius: 50px;
+  border: 3px solid #00a8ff;
+  display: flex;
+  padding: 10px;
+}
+
+.driveEmergencyButton {
+  width: 50%;
+  border: none;
+  color: #00a8ff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
+.driveEmergencyButtonActive {
+  background-color: #00a8ff;
+  color: #fff;
+}
+
+.pptac {
+  height: 10%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.pptacText {
+  margin: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .profileContainer {
+    width: 15rem;
+  }
+  .profileHeadingData {
+    padding: 0px;
+  }
+  .profileImageContainer {
+    margin-left: 30px;
+  }
+  .profileImage {
+    height: 50px;
+    width: 50px;
+  }
+  .driveEmergencyContainer {
+    padding: 20px;
+  }
+}
