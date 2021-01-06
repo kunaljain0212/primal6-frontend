@@ -3,7 +3,9 @@
     margin-top: -1rem !important;
     height: 85% !important;
   }
-
+  .sidebar {
+    width: 60px !important;
+  }
   .modal {
     box-shadow: 5px 5px 10px 0px grey;
   }
@@ -12,13 +14,8 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-top: -4rem;
-    margin-left: -15rem;
+    margin-top: 0rem;
+    margin-left: -15.5rem;
     /* width: 100vw; */
     z-index: 250;
     background-color: white;
@@ -33,6 +30,26 @@
   .close {
     margin-top: -2.5rem;
     margin-left: 17rem !important;
+  }
+  .plusalt {
+    margin-left: -0.5rem;
+  }
+  .rightbar {
+    height: 2.8rem !important;
+  }
+  input[type='search'] {
+    font-size: 15px !important;
+  }
+  .rightsidebar {
+    height: 2.8rem !important;
+    width: 270px !important;
+  }
+  .mapOp {
+    height: 2.8rem !important;
+  }
+  .mapoptions {
+    height: 2.8rem !important;
+    width: 130px !important;
   }
 }
 
@@ -272,7 +289,7 @@ textarea {
   padding-top: 0.5rem;
 }
 .heading {
-  margin-left: -4rem;
+  margin-left: -3rem;
   margin-top: 1rem;
   text-align: center;
   font-size: 2rem;

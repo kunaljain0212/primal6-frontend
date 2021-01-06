@@ -169,7 +169,7 @@ const Sidebar = () => {
 
       <div onClick={() => changeIsModalOpen('Raise an Emergency')}>
         <span className={styles.emergencyButton}>
-          <IconContext.Provider value={{ size: '75px', color: '#00a8ff' }}>
+          <IconContext.Provider value={{ size: '65px', color: '#00a8ff' }}>
             <FaPlusSquare />
           </IconContext.Provider>
         </span>
