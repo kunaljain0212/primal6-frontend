@@ -7,20 +7,20 @@ import { IconContext } from 'react-icons';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 import './Navbar.styles.css';
 
-export const AutoCompleteInputStart = () => {
-  const [address, changeAddress] = useState();
-
+export const AutoCompleteInputDest = () => {
+  const [destAddress, changeDestAddress] = useState();
+  // console.log(destAddress);
   const handleSelect = (add) => {
-    changeAddress(add);
-    geocodeByAddress(address)
+    changeDestAddress(add);
+    geocodeByAddress(destAddress)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => console.log('Success', latLng))
       .catch((error) => console.error('Error', error));
   };
   return (
     <PlacesAutocomplete
-      value={address}
-      onChange={changeAddress}
+      value={destAddress}
+      onChange={changeDestAddress}
       onSelect={handleSelect}
       debounce={1000}
     >
@@ -35,7 +35,7 @@ export const AutoCompleteInputStart = () => {
           <div>
             {loading && <div>Loading...</div>}
             {suggestions.map((suggestion) => {
-              console.log(suggestion);
+              // console.log(suggestion);
               // const className = suggestion.active
               //   ? 'suggestion-item--active'
               //   : 'suggestion-item';
@@ -68,20 +68,20 @@ export const AutoCompleteInputStart = () => {
   );
 };
 
-export const AutoCompleteInputDest = () => {
-  const [address, changeAddress] = useState();
-
+export const AutoCompleteInputStart = () => {
+  const [startAddress, changeStartAddress] = useState();
+  // console.log(startAddress);
   const handleSelect = (add) => {
-    changeAddress(add);
-    geocodeByAddress(address)
+    changeStartAddress(add);
+    geocodeByAddress(startAddress)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => console.log('Success', latLng))
       .catch((error) => console.error('Error', error));
   };
   return (
     <PlacesAutocomplete
-      value={address}
-      onChange={changeAddress}
+      value={startAddress}
+      onChange={changeStartAddress}
       onSelect={handleSelect}
       debounce={1000}
     >
@@ -96,7 +96,7 @@ export const AutoCompleteInputDest = () => {
           <div>
             {loading && <div>Loading...</div>}
             {suggestions.map((suggestion) => {
-              console.log(suggestion);
+              // console.log(suggestion);
               // const className = suggestion.active
               //   ? 'suggestion-item--active'
               //   : 'suggestion-item';
