@@ -72,16 +72,16 @@
 }
 .locations {
   background-color: #303030;
-  height: 15vh;
+  /* height: 15vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .start {
+  position: static;
   margin: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .start > input {
   text-decoration: none;
@@ -93,11 +93,20 @@
   margin: 0px 20px;
   text-align: center;
 }
-/* input::placeholder {
-  color: white;
-  opacity: 0.8;
-  font-size: 0.7rem;
-} */
+.location-search-input {
+  text-decoration: none;
+  background-color: #303030;
+  border: none;
+  font-size: 15px;
+  border-bottom: 1px solid #808080;
+  color: #fff;
+  margin: 0px 20px;
+  text-align: center;
+}
+.auto_complete_dropdown_container {
+  color: black;
+  width: 100%;
+}
 .recent-locations {
   color: #000;
   height: 15vh;
