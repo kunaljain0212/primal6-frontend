@@ -6,128 +6,129 @@ import PlacesAutocomplete, {
 import { IconContext } from 'react-icons';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 import './Navbar.styles.css';
+import AutoComplete from 'react-google-autocomplete';
 
-export const AutoCompleteInputDest = () => {
-  const [destAddress, changeDestAddress] = useState();
-  // console.log(destAddress);
-  const handleSelect = (add) => {
-    changeDestAddress(add);
-    geocodeByAddress(destAddress)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => console.log('Success', latLng))
-      .catch((error) => console.error('Error', error));
-  };
-  return (
-    <PlacesAutocomplete
-      value={destAddress}
-      onChange={changeDestAddress}
-      onSelect={handleSelect}
-      debounce={1000}
-    >
-      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className="auto_complete_dropdown_container">
-          <input
-            {...getInputProps({
-              placeholder: 'Enter Start Location',
-              className: 'location-search-input',
-            })}
-          />
-          <div>
-            {loading && <div>Loading...</div>}
-            {suggestions.map((suggestion) => {
-              // console.log(suggestion);
-              // const className = suggestion.active
-              //   ? 'suggestion-item--active'
-              //   : 'suggestion-item';
-              // inline style for demonstration purpose
-              const style = suggestion.active
-                ? {
-                    backgroundColor: '#fafafa',
-                    cursor: 'pointer',
-                    color: '#000',
-                  }
-                : {
-                    backgroundColor: '#ffffff',
-                    cursor: 'pointer',
-                    color: '#000',
-                  };
-              return (
-                <div
-                  {...getSuggestionItemProps(suggestion, {
-                    style,
-                  })}
-                >
-                  <span>{suggestion.description}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </PlacesAutocomplete>
-  );
-};
+// export const AutoCompleteInputDest = () => {
+//   const [destAddress, changeDestAddress] = useState();
+//   // console.log(destAddress);
+//   const handleSelect = (add) => {
+//     changeDestAddress(add);
+//     geocodeByAddress(destAddress)
+//       .then((results) => getLatLng(results[0]))
+//       .then((latLng) => console.log('Success', latLng))
+//       .catch((error) => console.error('Error', error));
+//   };
+//   return (
+//     <PlacesAutocomplete
+//       value={destAddress}
+//       onChange={changeDestAddress}
+//       onSelect={handleSelect}
+//       debounce={1000}
+//     >
+//       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//         <div className="auto_complete_dropdown_container">
+//           <input
+//             {...getInputProps({
+//               placeholder: 'Enter Start Location',
+//               className: 'location-search-input',
+//             })}
+//           />
+//           <div>
+//             {loading && <div>Loading...</div>}
+//             {suggestions.map((suggestion) => {
+//               // console.log(suggestion);
+//               // const className = suggestion.active
+//               //   ? 'suggestion-item--active'
+//               //   : 'suggestion-item';
+//               // inline style for demonstration purpose
+//               const style = suggestion.active
+//                 ? {
+//                     backgroundColor: '#fafafa',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   }
+//                 : {
+//                     backgroundColor: '#ffffff',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   };
+//               return (
+//                 <div
+//                   {...getSuggestionItemProps(suggestion, {
+//                     style,
+//                   })}
+//                 >
+//                   <span>{suggestion.description}</span>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//     </PlacesAutocomplete>
+//   );
+// };
 
-export const AutoCompleteInputStart = () => {
-  const [startAddress, changeStartAddress] = useState();
-  // console.log(startAddress);
-  const handleSelect = (add) => {
-    changeStartAddress(add);
-    geocodeByAddress(startAddress)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => console.log('Success', latLng))
-      .catch((error) => console.error('Error', error));
-  };
-  return (
-    <PlacesAutocomplete
-      value={startAddress}
-      onChange={changeStartAddress}
-      onSelect={handleSelect}
-      debounce={1000}
-    >
-      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className="auto_complete_dropdown_container">
-          <input
-            {...getInputProps({
-              placeholder: 'Enter Destination Location',
-              className: 'location-search-input',
-            })}
-          />
-          <div>
-            {loading && <div>Loading...</div>}
-            {suggestions.map((suggestion) => {
-              // console.log(suggestion);
-              // const className = suggestion.active
-              //   ? 'suggestion-item--active'
-              //   : 'suggestion-item';
-              // inline style for demonstration purpose
-              const style = suggestion.active
-                ? {
-                    backgroundColor: '#fafafa',
-                    cursor: 'pointer',
-                    color: '#000',
-                  }
-                : {
-                    backgroundColor: '#ffffff',
-                    cursor: 'pointer',
-                    color: '#000',
-                  };
-              return (
-                <div
-                  {...getSuggestionItemProps(suggestion, {
-                    style,
-                  })}
-                >
-                  <span>{suggestion.description}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </PlacesAutocomplete>
-  );
-};
+// export const AutoCompleteInputStart = () => {
+//   const [startAddress, changeStartAddress] = useState();
+//   // console.log(startAddress);
+//   const handleSelect = (add) => {
+//     changeStartAddress(add);
+//     geocodeByAddress(startAddress)
+//       .then((results) => getLatLng(results[0]))
+//       .then((latLng) => console.log('Success', latLng))
+//       .catch((error) => console.error('Error', error));
+//   };
+//   return (
+//     <PlacesAutocomplete
+//       value={startAddress}
+//       onChange={changeStartAddress}
+//       onSelect={handleSelect}
+//       debounce={1000}
+//     >
+//       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//         <div className="auto_complete_dropdown_container">
+//           <input
+//             {...getInputProps({
+//               placeholder: 'Enter Destination Location',
+//               className: 'location-search-input',
+//             })}
+//           />
+//           <div>
+//             {loading && <div>Loading...</div>}
+//             {suggestions.map((suggestion) => {
+//               // console.log(suggestion);
+//               // const className = suggestion.active
+//               //   ? 'suggestion-item--active'
+//               //   : 'suggestion-item';
+//               // inline style for demonstration purpose
+//               const style = suggestion.active
+//                 ? {
+//                     backgroundColor: '#fafafa',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   }
+//                 : {
+//                     backgroundColor: '#ffffff',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   };
+//               return (
+//                 <div
+//                   {...getSuggestionItemProps(suggestion, {
+//                     style,
+//                   })}
+//                 >
+//                   <span>{suggestion.description}</span>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//     </PlacesAutocomplete>
+//   );
+// };
 
 const Navbar = ({ isNav, closeNav }) => {
   return (
@@ -205,7 +206,12 @@ const Navbar = ({ isNav, closeNav }) => {
                       </g>
                     </g>
                   </svg>
-                  <AutoCompleteInputStart />
+                  <AutoComplete
+                    onPlaceSelected={(place) => {
+                      console.log(place);
+                    }}
+                    types={['(regions)']}
+                  />
                   <svg
                     version="1.1"
                     id="Capa_1"
@@ -259,7 +265,12 @@ const Navbar = ({ isNav, closeNav }) => {
                       />
                     </g>
                   </svg>
-                  <AutoCompleteInputDest />
+                  <AutoComplete
+                    onPlaceSelected={(place) => {
+                      console.log(place);
+                    }}
+                    types={['(regions)']}
+                  />
                   <svg
                     version="1.1"
                     id="Capa_1"
