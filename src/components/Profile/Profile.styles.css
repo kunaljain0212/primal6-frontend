@@ -1,16 +1,29 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0rem;
+  left: 0px;
+  z-index: 200;
+}
 .profileContainer {
   position: fixed;
-  right: 0;
-  width: 18rem;
+  width: 16rem;
   height: 100vh;
-  padding: 30px 50px;
+  padding: 30px 40px;
   box-shadow: -5px 10px 10px 5px #d9d9d9;
+  z-index: 200;
+  background-color: white;
 }
 
 .profileHeading {
   height: 20%;
   display: flex;
   border-bottom: 2px solid grey;
+}
+.profileClose {
+  margin-left: -1.5rem;
+  margin-top: -1.8rem;
 }
 
 .profileHeadingData {
@@ -20,6 +33,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
+  margin-left: -0.5rem;
 }
 
 .spanName {
@@ -38,6 +52,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin-left: -0.5rem;
 }
 
 .profileImage {
@@ -147,5 +162,13 @@
   }
   .driveEmergencyContainer {
     padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .profileClose {
+    padding-left: 1rem;
   }
 }
