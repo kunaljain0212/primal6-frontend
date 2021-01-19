@@ -130,7 +130,15 @@ import AutoComplete from 'react-google-autocomplete';
 //   );
 // };
 
-const Navbar = ({ isNav, closeNav }) => {
+const Navbar = ({
+  isNav,
+  closeNav,
+  onPlaceSelectedStart,
+  onPlaceSelectedEnd,
+  startNav,
+  starting,
+  ending,
+}) => {
   return (
     <>
       {isNav === 'navbaropen' ? (
@@ -208,7 +216,7 @@ const Navbar = ({ isNav, closeNav }) => {
                   </svg>
                   <AutoComplete
                     onPlaceSelected={(place) => {
-                      console.log(place);
+                      onPlaceSelectedStart(place);
                     }}
                     types={['(regions)']}
                   />
@@ -267,7 +275,7 @@ const Navbar = ({ isNav, closeNav }) => {
                   </svg>
                   <AutoComplete
                     onPlaceSelected={(place) => {
-                      console.log(place);
+                      onPlaceSelectedEnd(place);
                     }}
                     types={['(regions)']}
                   />
@@ -366,6 +374,9 @@ const Navbar = ({ isNav, closeNav }) => {
                   </ul>
                 </div>
               </div>
+              <button onClick={() => startNav(starting, ending)}>
+                Start Nav
+              </button>
             </div>
           </div>
         </>
