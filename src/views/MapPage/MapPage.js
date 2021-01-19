@@ -4,10 +4,9 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 const RenderMap = () => {
   return (
-    <div>
-      <Sidebar />
+    <>
       <Map />
-    </div>
+    </>
   );
 };
 export default RenderMap;
