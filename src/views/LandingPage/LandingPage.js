@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import styles from './LandingPage.module.css';
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { gql, useMutation, useLazyQuery } from '@apollo/client';
 
 import { ReactComponent as Ambulance } from '../../assets/ambulance.svg';
 import notification from '../../notification/notify';
@@ -74,7 +74,7 @@ const Modal = ({ mode, closemodal }) => {
     },
     variables: values,
   });
-  const { data } = useQuery(LOGIN_QUERY, {
+  const [Login, { data }] = useLazyQuery(LOGIN_QUERY, {
     variables: values,
     onError: (error) => {
       notification.fire({
@@ -91,10 +91,13 @@ const Modal = ({ mode, closemodal }) => {
     e.preventDefault();
     if (mode === 'Sign Up') {
       Register();
-    } else if (data === undefined) return null;
-    else if (data) {
-      console.log(data);
-      history.push('/map');
+    } else {
+      Login();
+      if (data === undefined) return null;
+      else {
+        console.log(data);
+        history.push('/map');
+      }
     }
   };
 
