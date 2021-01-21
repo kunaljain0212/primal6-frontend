@@ -4,20 +4,20 @@ import logo from './logo.svg';
 import './App.css';
 import RenderMap from './views/MapPage/MapPage';
 import LandingPage from './views/LandingPage/LandingPage';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Profile from './components/Profile/Profile';
 import Map from './components/map/Map';
 
 const client = new ApolloClient({
   // uri: GRAPHQL_ENDPOINT
-  uri: process.env.GRAPHQL_END_POINT,
+  uri: 'http://localhost:8000/graphql',
+  cache: new InMemoryCache(),
 });
 
 function App() {
   return (
-    <div className="App">
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <div className="App">
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
@@ -44,8 +44,8 @@ function App() {
             </header>
           </Switch>
         </BrowserRouter>
-      </ApolloProvider>
-    </div>
+      </div>
+    </ApolloProvider>
   );
 }
 

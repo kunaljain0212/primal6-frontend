@@ -1,13 +1,103 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import styles from './LandingPage.module.css';
+import { gql, useMutation, useQuery } from '@apollo/client';
 
 import { ReactComponent as Ambulance } from '../../assets/ambulance.svg';
+import notification from '../../notification/notify';
 
+const REGISTER_MUTATION = gql`
+  mutation REGISTER(
+    $name: String!
+    $email: String!
+    $password: String!
+    $phone: String
+  ) {
+    Register(name: $name, email: $email, password: $password, phone: $phone) {
+      user {
+        id
+        name
+        email
+        phone
+        password
+      }
+      token
+    }
+  }
+`;
+const LOGIN_QUERY = gql`
+  query LOGIN($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      user {
+        id
+        name
+        email
+        phone
+        password
+      }
+      token
+    }
+  }
+`;
 const Modal = ({ mode, closemodal }) => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const history = useHistory();
+  const [values, setValues] = useState({
+    username: '',
+    email: '',
+    password: '',
+    phone: '',
+  });
+
+  const { register, errors } = useForm({ mode: 'onSubmit' });
+  const [Register] = useMutation(REGISTER_MUTATION, {
+    onError: (error) => {
+      notification.fire({
+        icon: 'error',
+        title: error.message,
+      });
+    },
+    onCompleted: (result) => {
+      console.log(result);
+      const {
+        Register: {
+          user: { id },
+        },
+      } = result;
+      if (id) {
+        notification.fire({
+          icon: 'success',
+          title: 'Successfully Signed Up',
+        });
+        history.push('/map');
+      }
+    },
+    variables: values,
+  });
+  const { data } = useQuery(LOGIN_QUERY, {
+    variables: values,
+    onError: (error) => {
+      notification.fire({
+        icon: 'error',
+        title: error.message,
+      });
+    },
+  });
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (mode === 'Sign Up') {
+      Register();
+    } else if (data === undefined) return null;
+    else if (data) {
+      console.log(data);
+      history.push('/map');
+    }
+  };
+
   return (
     <>
       <div
@@ -16,7 +106,7 @@ const Modal = ({ mode, closemodal }) => {
       />
 
       <div className={styles.modal}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={onSubmit}>
           <h1>{mode}</h1>
           {mode === 'Sign Up' ? (
             <>
@@ -28,6 +118,8 @@ const Modal = ({ mode, closemodal }) => {
                   className={styles.input}
                   placeholder="Enter your Name"
                   ref={register({ required: true })}
+                  value={values.name}
+                  onChange={onChange}
                 />
                 {errors.name && (
                   <h3 className={styles.errors}> '*This field is required'</h3>
@@ -43,6 +135,8 @@ const Modal = ({ mode, closemodal }) => {
               className={styles.input}
               placeholder="Enter your email address"
               ref={register({ required: true })}
+              value={values.email}
+              onChange={onChange}
             />
             {errors.email && (
               <h3 className={styles.errors}> '*This field is required'</h3>
@@ -56,6 +150,8 @@ const Modal = ({ mode, closemodal }) => {
               className={styles.input}
               placeholder="Enter password of minimum length 6"
               ref={register({ required: true, minLength: 6 })}
+              value={values.password}
+              onChange={onChange}
             />
             {errors.password && (
               <h3 className={styles.errors}> '*This field is required'</h3>
@@ -70,6 +166,8 @@ const Modal = ({ mode, closemodal }) => {
                   type="phone"
                   className={styles.input}
                   placeholder="Enter your Phone number"
+                  value={values.phone}
+                  onChange={onChange}
                 />
               </span>
               <div className={styles.checkbox}>
