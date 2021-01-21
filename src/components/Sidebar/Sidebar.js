@@ -128,13 +128,20 @@ const MapOptions = ({ option, closeOption }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({
+  onPlaceSelectedStart,
+  onPlaceSelectedEnd,
+  startNav,
+  starting,
+  ending,
+}) => {
   const [isModalOpen, changeIsModalOpen] = useState(null);
   const [isBarOpen, changeIsBarOpen] = useState(null);
   const [isOptionOpen, changeIsOptionOpen] = useState(null);
   const [isNavOpen, setIsNav] = useState(null);
   const [isProfOpen, setProf] = useState(null);
 
+  console.log(onPlaceSelectedStart);
   return (
     <div style={{ position: 'fixed', zIndex: '100' }}>
       {isBarOpen ? (
@@ -146,7 +153,17 @@ const Sidebar = () => {
       {isOptionOpen ? (
         <MapOptions option={isOptionOpen} closeOption={changeIsOptionOpen} />
       ) : null}
-      {isNavOpen ? <Navbar isNav={isNavOpen} closeNav={setIsNav} /> : null}
+      {isNavOpen ? (
+        <Navbar
+          isNav={isNavOpen}
+          closeNav={setIsNav}
+          onPlaceSelectedStart={onPlaceSelectedStart}
+          onPlaceSelectedEnd={onPlaceSelectedEnd}
+          startNav={startNav}
+          starting={starting}
+          ending={ending}
+        />
+      ) : null}
       {isProfOpen ? <Profile isProf={isProfOpen} closeProf={setProf} /> : null}
 
       <div onClick={() => changeIsBarOpen('rightsidebar')}>

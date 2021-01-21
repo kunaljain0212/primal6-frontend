@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import RenderMap from './components/map';
+import RenderMap from './views/MapPage/MapPage';
 import LandingPage from './views/LandingPage/LandingPage';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Profile from './components/Profile/Profile';
+import Map from './components/map/Map';
 
 const client = new ApolloClient({
   // uri: GRAPHQL_ENDPOINT
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/map" component={RenderMap} />
             <Route path="/profile" component={Profile} />
+            <Route exact path="/maps/v2">
+              <Map />
+            </Route>
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <p>

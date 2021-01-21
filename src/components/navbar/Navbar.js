@@ -1,8 +1,144 @@
-import React from 'react';
-import './Navbar.styles.css';
+import React, { useState } from 'react';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 import { IconContext } from 'react-icons';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
-const Navbar = ({ isNav, closeNav }) => {
+import './Navbar.styles.css';
+import AutoComplete from 'react-google-autocomplete';
+
+// export const AutoCompleteInputDest = () => {
+//   const [destAddress, changeDestAddress] = useState();
+//   // console.log(destAddress);
+//   const handleSelect = (add) => {
+//     changeDestAddress(add);
+//     geocodeByAddress(destAddress)
+//       .then((results) => getLatLng(results[0]))
+//       .then((latLng) => console.log('Success', latLng))
+//       .catch((error) => console.error('Error', error));
+//   };
+//   return (
+//     <PlacesAutocomplete
+//       value={destAddress}
+//       onChange={changeDestAddress}
+//       onSelect={handleSelect}
+//       debounce={1000}
+//     >
+//       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//         <div className="auto_complete_dropdown_container">
+//           <input
+//             {...getInputProps({
+//               placeholder: 'Enter Start Location',
+//               className: 'location-search-input',
+//             })}
+//           />
+//           <div>
+//             {loading && <div>Loading...</div>}
+//             {suggestions.map((suggestion) => {
+//               // console.log(suggestion);
+//               // const className = suggestion.active
+//               //   ? 'suggestion-item--active'
+//               //   : 'suggestion-item';
+//               // inline style for demonstration purpose
+//               const style = suggestion.active
+//                 ? {
+//                     backgroundColor: '#fafafa',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   }
+//                 : {
+//                     backgroundColor: '#ffffff',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   };
+//               return (
+//                 <div
+//                   {...getSuggestionItemProps(suggestion, {
+//                     style,
+//                   })}
+//                 >
+//                   <span>{suggestion.description}</span>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//     </PlacesAutocomplete>
+//   );
+// };
+
+// export const AutoCompleteInputStart = () => {
+//   const [startAddress, changeStartAddress] = useState();
+//   // console.log(startAddress);
+//   const handleSelect = (add) => {
+//     changeStartAddress(add);
+//     geocodeByAddress(startAddress)
+//       .then((results) => getLatLng(results[0]))
+//       .then((latLng) => console.log('Success', latLng))
+//       .catch((error) => console.error('Error', error));
+//   };
+//   return (
+//     <PlacesAutocomplete
+//       value={startAddress}
+//       onChange={changeStartAddress}
+//       onSelect={handleSelect}
+//       debounce={1000}
+//     >
+//       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+//         <div className="auto_complete_dropdown_container">
+//           <input
+//             {...getInputProps({
+//               placeholder: 'Enter Destination Location',
+//               className: 'location-search-input',
+//             })}
+//           />
+//           <div>
+//             {loading && <div>Loading...</div>}
+//             {suggestions.map((suggestion) => {
+//               // console.log(suggestion);
+//               // const className = suggestion.active
+//               //   ? 'suggestion-item--active'
+//               //   : 'suggestion-item';
+//               // inline style for demonstration purpose
+//               const style = suggestion.active
+//                 ? {
+//                     backgroundColor: '#fafafa',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   }
+//                 : {
+//                     backgroundColor: '#ffffff',
+//                     cursor: 'pointer',
+//                     color: '#000',
+//                   };
+//               return (
+//                 <div
+//                   {...getSuggestionItemProps(suggestion, {
+//                     style,
+//                   })}
+//                 >
+//                   <span>{suggestion.description}</span>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//     </PlacesAutocomplete>
+//   );
+// };
+
+const Navbar = ({
+  isNav,
+  closeNav,
+  onPlaceSelectedStart,
+  onPlaceSelectedEnd,
+  startNav,
+  starting,
+  ending,
+}) => {
   return (
     <>
       {isNav === 'navbaropen' ? (
@@ -78,7 +214,12 @@ const Navbar = ({ isNav, closeNav }) => {
                       </g>
                     </g>
                   </svg>
-                  <input type="text" placeholder="Enter start location" />
+                  <AutoComplete
+                    onPlaceSelected={(place) => {
+                      onPlaceSelectedStart(place);
+                    }}
+                    types={['(regions)']}
+                  />
                   <svg
                     version="1.1"
                     id="Capa_1"
@@ -132,7 +273,12 @@ const Navbar = ({ isNav, closeNav }) => {
                       />
                     </g>
                   </svg>
-                  <input type="text" placeholder="Enter start location" id="" />
+                  <AutoComplete
+                    onPlaceSelected={(place) => {
+                      onPlaceSelectedEnd(place);
+                    }}
+                    types={['(regions)']}
+                  />
                   <svg
                     version="1.1"
                     id="Capa_1"
@@ -228,6 +374,9 @@ const Navbar = ({ isNav, closeNav }) => {
                   </ul>
                 </div>
               </div>
+              <button onClick={() => startNav(starting, ending)}>
+                Start Nav
+              </button>
             </div>
           </div>
         </>
