@@ -1,10 +1,36 @@
 import React from 'react';
 import './Profile.styles.css';
+import { gql, useQuery } from '@apollo/client';
 import test from '../../assets/test.png';
 import { IconContext } from 'react-icons';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
+import notification from '../../notification/notify';
+import Loader from '../../loader/loader';
+
+const PROFILE_QUERY = gql`
+  query PROFILE {
+    profile {
+      name
+      email
+      phone
+    }
+  }
+`;
 
 const Profile = ({ isProf, closeProf }) => {
+  const { loading, error, data } = useQuery(PROFILE_QUERY, {
+    onError: (error) => {
+      notification.fire({
+        icon: 'error',
+        title: error.message,
+      });
+    },
+  });
+  if (loading) return <Loader />;
+  console.log(data);
+  const {
+    profile: { name, email, phone },
+  } = data;
   return (
     <>
       {isProf === 'profileOpen' ? (
@@ -13,8 +39,8 @@ const Profile = ({ isProf, closeProf }) => {
             <div className="profileContainer">
               <div className="profileHeading">
                 <div className="profileHeadingData">
-                  <span className="spanName">Kunal Jain</span>
-                  <span className="spanEmail">jainkunal209@gmail.com</span>
+                  <span className="spanName">{name}</span>
+                  <span className="spanEmail">{email}</span>
                 </div>
                 <div className="profileImageContainer">
                   <div className="profileImage">

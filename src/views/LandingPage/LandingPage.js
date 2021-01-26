@@ -6,6 +6,7 @@ import { gql, useMutation, useLazyQuery } from '@apollo/client';
 
 import { ReactComponent as Ambulance } from '../../assets/ambulance.svg';
 import notification from '../../notification/notify';
+import Loader from '../../loader/loader';
 
 const REGISTER_MUTATION = gql`
   mutation REGISTER(
@@ -22,7 +23,6 @@ const REGISTER_MUTATION = gql`
         phone
         password
       }
-      token
     }
   }
 `;
@@ -36,7 +36,6 @@ const LOGIN_QUERY = gql`
         phone
         password
       }
-      token
     }
   }
 `;
@@ -48,7 +47,6 @@ const Modal = ({ mode, closemodal }) => {
     password: '',
     phone: '',
   });
-
   const { register, errors } = useForm({ mode: 'onSubmit' });
   const [Register] = useMutation(REGISTER_MUTATION, {
     onError: (error) => {
@@ -62,8 +60,10 @@ const Modal = ({ mode, closemodal }) => {
       const {
         Register: {
           user: { id },
+          token,
         },
       } = result;
+      console.log(token);
       if (id) {
         notification.fire({
           icon: 'success',
@@ -74,7 +74,7 @@ const Modal = ({ mode, closemodal }) => {
     },
     variables: values,
   });
-  const [Login, { data }] = useLazyQuery(LOGIN_QUERY, {
+  const [Login, { data, loading }] = useLazyQuery(LOGIN_QUERY, {
     variables: values,
     onError: (error) => {
       notification.fire({
@@ -87,12 +87,13 @@ const Modal = ({ mode, closemodal }) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (mode === 'Sign Up') {
-      Register();
+      await Register();
     } else {
-      Login();
+      await Login();
+      if (loading) return <Loader />;
       if (data === undefined) return null;
       else {
         console.log(data);

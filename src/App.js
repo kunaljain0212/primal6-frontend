@@ -4,13 +4,23 @@ import logo from './logo.svg';
 import './App.css';
 import RenderMap from './views/MapPage/MapPage';
 import LandingPage from './views/LandingPage/LandingPage';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
 import Profile from './components/Profile/Profile';
 import Map from './components/map/Map';
 
+const link = createHttpLink({
+  uri: 'http://localhost:8000/graphql',
+  credentials: 'include',
+});
+
 const client = new ApolloClient({
   // uri: GRAPHQL_ENDPOINT
-  uri: 'http://localhost:8000/graphql',
+  link,
   cache: new InMemoryCache(),
 });
 
