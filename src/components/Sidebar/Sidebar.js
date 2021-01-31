@@ -20,6 +20,7 @@ import {
   FaSearch,
   FaPlusSquare,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Modal = ({ mode, closemodal }) => {
   const { register, handleSubmit, errors } = useForm();
@@ -141,7 +142,6 @@ const Sidebar = ({
   const [isNavOpen, setIsNav] = useState(null);
   const [isProfOpen, setProf] = useState(null);
 
-  console.log(onPlaceSelectedStart);
   return (
     <div style={{ position: 'fixed', zIndex: '100' }}>
       {isBarOpen ? (
@@ -196,41 +196,53 @@ const Sidebar = ({
         <div className={styles.plusalt}></div>
         <IconContext.Provider value={{ size: '35px' }}>
           <div className={styles.Side}>
-            <a href="#">
-              <FaHome />
-            </a>
+            <FaHome className={styles.sidebarButton} />
           </div>
         </IconContext.Provider>
         <span className={styles.menulabel}>Home</span>
         <IconContext.Provider value={{ size: '40px' }}>
-          <div onClick={() => setIsNav('navbaropen')}>
-            <a href="#">
-              <FiArrowUpRight />
-            </a>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+            onClick={() => setIsNav('navbaropen')}
+          >
+            <FiArrowUpRight className={styles.sidebarButton} />
           </div>
         </IconContext.Provider>
         <span className={styles.menulabel}>Navigation</span>
         <IconContext.Provider value={{ size: '35px' }}>
-          <div>
-            <a href="#">
-              <FaCompass />
-            </a>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <FaCompass className={styles.sidebarButton} />
           </div>
         </IconContext.Provider>
         <span className={styles.menulabel}>Browse</span>
         <IconContext.Provider value={{ size: '35px' }}>
-          <div>
-            <a href="#">
-              <FaMapMarkerAlt />
-            </a>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <FaMapMarkerAlt className={styles.sidebarButton} />
           </div>
         </IconContext.Provider>
         <span className={styles.menulabel}>Places</span>
         <IconContext.Provider value={{ size: '35px' }}>
-          <div onClick={() => setProf('profileOpen')}>
-            <a href="#">
-              <CgProfile />
-            </a>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+            onClick={() => setProf('profileOpen')}
+          >
+            <CgProfile className={styles.sidebarButton} />
           </div>
         </IconContext.Provider>
         <span className={styles.menulabel}>Profile</span>

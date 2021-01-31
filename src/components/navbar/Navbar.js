@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import React from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 import './Navbar.styles.css';
