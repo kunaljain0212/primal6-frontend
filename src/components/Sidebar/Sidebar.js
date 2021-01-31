@@ -60,6 +60,28 @@ const Modal = ({ mode, closemodal }) => {
                 <textarea placeholder="What is the emergency"></textarea>
               </span>
               <span className={styles.entry}>
+                <label className={styles.label} style={{ marginTop: '0rem' }}>
+                  Emergency Level
+                </label>
+                <div className={styles.relative}>
+                  <button className={styles.levelbutton}>
+                    <span> 1 </span>
+                  </button>
+                  <button className={styles.levelbutton}>
+                    <span> 2 </span>
+                  </button>
+                  <button className={styles.levelbutton}>
+                    <span> 3 </span>
+                  </button>
+                  <button className={styles.levelbutton}>
+                    <span> 4 </span>
+                  </button>
+                  <button className={styles.levelbutton}>
+                    <span> 5 </span>
+                  </button>
+                </div>
+              </span>
+              <span className={styles.entry}>
                 <label className={styles.label} style={{ marginTop: '0.3rem' }}>
                   Upload photo
                 </label>
@@ -73,7 +95,11 @@ const Modal = ({ mode, closemodal }) => {
               </span>
             </>
           ) : null}
-          <button type="submit" className={styles.submitbutton}>
+          <button
+            type="submit"
+            className={styles.submitbutton}
+            style={{ marginTop: '-5rem' }}
+          >
             <span>Submit</span>
           </button>
         </form>

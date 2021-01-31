@@ -133,12 +133,13 @@ const Modal = ({ mode, closemodal }) => {
           ) : null}
           <span className={styles.entry}>
             <label className={styles.label}>E-mail*</label>
+
             <input
               name="email"
               type="email"
               className={styles.input}
               placeholder="Enter your email address"
-              ref={register({ required: true })}
+              ref={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
               value={values.email}
               onChange={onChange}
             />
@@ -171,8 +172,20 @@ const Modal = ({ mode, closemodal }) => {
                   className={styles.input}
                   placeholder="Enter your Phone number"
                   value={values.phone}
+                  ref={register({
+                    required: false,
+                    pattern: /^[0-9\b]+$/,
+                    minLength: 6,
+                    maxLength: 10,
+                  })}
                   onChange={onChange}
                 />
+
+                {errors.phone && (
+                  <h3 className={styles.errors}>
+                    '*enter a valid phone number'
+                  </h3>
+                )}
               </span>
               <div className={styles.checkbox}>
                 <label>Priority User</label>

@@ -4,6 +4,10 @@ import logo from './logo.svg';
 import './App.css';
 import RenderMap from './views/MapPage/MapPage';
 import LandingPage from './views/LandingPage/LandingPage';
+import alertBox from './components/alertBox/alertBox';
+import AttEmg from './components/AttEmg/AttEmg';
+// import ProfileEmg from './components/ProfileEmg/ProfileEmg';
+import EmgReq from './components/EmergencyRequest/EmgReq';
 import {
   ApolloClient,
   InMemoryCache,
@@ -34,6 +38,10 @@ function App() {
               <LandingPage />
             </Route>
             <Route path="/map" component={RenderMap} />
+            <Route path="/alertBox" component={alertBox} />
+            <Route path="/AttEmg" component={AttEmg} />
+            {/* <Route path="/ProfileEmg" component={ProfileEmg} /> */}
+            <Route path="/EmgReq" component={EmgReq} />
             <Route path="/profile" component={Profile} />
             <Route exact path="/maps/v2">
               <Map />
