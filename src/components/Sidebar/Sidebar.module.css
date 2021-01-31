@@ -203,7 +203,7 @@ input[type='search'] {
   margin-left: 20rem;
 }
 
-.sidebar a {
+.sidebarButton {
   margin-top: 0rem;
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -213,12 +213,15 @@ input[type='search'] {
   size: '40px';
   margin-left: -0.5rem;
 }
-.sidebar a:hover {
+.sidebarButton:hover {
+  cursor: pointer;
   color: #00a8ff;
   text-decoration: none;
 }
 .Side {
   margin-top: 7rem;
+  display: flex;
+  justify-content: center;
 }
 
 .menulabel {
