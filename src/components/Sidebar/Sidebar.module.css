@@ -51,6 +51,28 @@
     height: 2.8rem !important;
     width: 130px !important;
   }
+  .relative {
+    padding: 15px !important;
+    position: relative;
+    background-color: #fff;
+    margin-left: -2rem !important;
+  }
+  .levelbutton {
+    background-color: white; /* Green */
+
+    color: black;
+    padding: 10px 10px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline block !important;
+    margin-left: 1rem;
+    border: 1px solid #23242348;
+    font-size: 0.8rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 2.5rem !important;
+    border-radius: 0.4rem;
+  }
 }
 
 .Arr {
@@ -313,4 +335,29 @@ textarea {
   background-color: #00a8ff;
   border-radius: 0.4rem;
   color: white;
+}
+.relative {
+  padding: 15px;
+  position: relative;
+  background-color: #fff;
+  margin-left: -2rem;
+}
+.levelbutton {
+  background-color: white; /* Green */
+
+  color: black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline block !important;
+  margin-left: 1rem;
+  border: 1px solid #23242348;
+  font-size: 1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 3.5rem;
+  border-radius: 0.4rem;
+}
+.levelbutton:hover {
+  background-color: #00a8ff;
 }
